@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PostsComponent } from './posts/posts.component';
 import { UsersComponent } from './users/users.component';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,14 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     PostsComponent,
     UsersComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {
-        path: '',
+        path: 'home',
         component: HomeComponent
       },
       {
@@ -31,8 +33,17 @@ import { HomeComponent } from './home/home.component';
       {
         path: 'posts',
         component: PostsComponent
+      },
+      { 
+        path: '',
+        redirectTo: '/home',
+        pathMatch: 'full'
+     },
+     { 
+       path: '**', 
+       component: PageNotFoundComponent 
       }
-    ])
+  ])
   ],
   providers: [],
   bootstrap: [AppComponent]
