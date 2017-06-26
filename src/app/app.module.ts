@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -21,29 +20,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([
-      {
-        path: 'home',
-        component: HomeComponent
-      },
-      {
-        path: 'users',
-        component: UsersComponent
-      },
-      {
-        path: 'posts',
-        component: PostsComponent
-      },
-      { 
-        path: '',
-        redirectTo: '/home',
-        pathMatch: 'full'
-     },
-     { 
-       path: '**', 
-       component: PageNotFoundComponent 
-      }
-  ])
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
